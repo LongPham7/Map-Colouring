@@ -11,10 +11,8 @@ public class AppFrame {
 	private JPanel panel2 = new JPanel();
 	private JPanel map = new MapPanel();
 	
-	private JLabel label1;
-	private JLabel label2;
-	
-	private JButton button;
+	private JButton button1;
+	private JButton button2;
 	
 	private JCheckBox blue;
 	private JCheckBox red;
@@ -26,10 +24,8 @@ public class AppFrame {
 		frame.getContentPane().add(BorderLayout.NORTH, panel1);
 		frame.getContentPane().add(BorderLayout.CENTER, panel2);
 		
-		label1 = new JLabel("Select the colours you wish to use.");
-		label2 = new JLabel("Result");
-		
-		button = new JButton("Colour the map");
+		button1 = new JButton("Colour the map");
+		button2 = new JButton("Next colouring");
 		
 		blue = new JCheckBox("Blue");
 		red = new JCheckBox("Red");
@@ -37,24 +33,26 @@ public class AppFrame {
 		yellow = new JCheckBox("Yellow");
 
 		panel1.setLayout(new GridBagLayout());
-		addComponent(label1, panel1, 0, 0, 1);
-		addComponent(blue, panel1, 0, 1, 1);
-		addComponent(red, panel1, 0, 2, 1);
-		addComponent(green, panel1, 0, 3, 1);
-		addComponent(yellow, panel1, 0, 4, 1);
-		addComponent(button, panel1, 1, 1, 1);
+		addComponent(blue, panel1, 0, 0, 1);
+		addComponent(red, panel1, 1, 0, 1);
+		addComponent(green, panel1, 2, 0, 1);
+		addComponent(yellow, panel1, 3, 0, 1);
+		addComponent(button1, panel1, 0, 1, 2);
+		addComponent(button2, panel1, 2, 1, 2);
+		panel1.setBorder(BorderFactory.createTitledBorder("Specify colours"));
 		
 		panel2.setLayout(new GridBagLayout());
-		addComponent(label2, panel2, 0, 0, 1);
-		addComponent(map, panel2, 0, 1, 1);
+		addComponent(map, panel2, 0, 0, 1);
+		panel2.setBorder(BorderFactory.createTitledBorder("Map"));
 		
 		map.setBackground(Color.WHITE);
 		map.setPreferredSize(new Dimension(500, 350));
 
-		button.addActionListener(new ButtonListener());
+		button1.addActionListener(new Button1Listener());
+		button2.addActionListener(new Button2Listener());
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(600, 600);
+		frame.setSize(550, 600);
 		frame.setVisible(true);
 	}
 
@@ -69,7 +67,14 @@ public class AppFrame {
 	}
 	
 	// Action listener for a button
-	class ButtonListener implements ActionListener {
+	class Button1Listener implements ActionListener {
+		public void actionPerformed(ActionEvent event) {
+			
+		}
+	}
+	
+	// Action listener for a button
+	class Button2Listener implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			
 		}
