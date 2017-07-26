@@ -1,4 +1,4 @@
-% This code is from page 256 of The Art of Prolog
+% This code is is a variant of the one from page 256 of The Art of Prolog.
 
 colour_map([Region|Regions], Colours) :-
   colour_region(Region, Colours),
@@ -19,7 +19,7 @@ test_colour(Name, Map) :-
   colours(Name, Colours),
   colour_map(Map, Colours).
 
-map(test, [region(a,A,[B,C,D]), region(b,B,[A,C,E]), region(c,C,[A,B,D,E,F]),
-region(d,D,[A,C,F]), region(e,E,[B,C,F]), region(f,F,[C,D,E])]).
+map(test, [region(a,A,[B,F]), region(b,B,[A,C,F]), region(c,C,[B,D,F]),
+region(d,D,[C,E,F]), region(e,E,[D,F]), region(f,F,[A,B,C,D,E]), region(g, G, [])]).
 
-colours(X,[red,yellow,blue,white]).
+colours(X,[blue,red,green,yellow]).

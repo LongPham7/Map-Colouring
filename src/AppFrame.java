@@ -9,7 +9,9 @@ public class AppFrame {
 	
 	private JPanel panel1 = new JPanel();
 	private JPanel panel2 = new JPanel();
-	private JPanel map = new MapPanel();
+	private MapPanel map = new MapPanel();
+	
+	private MapSolver solver = new MapSolver(map);
 	
 	private JButton button1;
 	private JButton button2;
@@ -39,14 +41,15 @@ public class AppFrame {
 		addComponent(yellow, panel1, 3, 0, 1);
 		addComponent(button1, panel1, 0, 1, 2);
 		addComponent(button2, panel1, 2, 1, 2);
-		panel1.setBorder(BorderFactory.createTitledBorder("Specify colours"));
+		panel1.setBorder(BorderFactory.createTitledBorder("Control Panel"));
 		
 		panel2.setLayout(new GridBagLayout());
 		addComponent(map, panel2, 0, 0, 1);
 		panel2.setBorder(BorderFactory.createTitledBorder("Map"));
 		
-		map.setBackground(Color.WHITE);
-		map.setPreferredSize(new Dimension(500, 350));
+		map.setPreferredSize(new Dimension(500, 450));
+		//map.repaint();
+		//map.setVisible(true);
 
 		button1.addActionListener(new Button1Listener());
 		button2.addActionListener(new Button2Listener());
@@ -69,14 +72,14 @@ public class AppFrame {
 	// Action listener for a button
 	class Button1Listener implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
-			
+			solver.solve();
 		}
 	}
 	
 	// Action listener for a button
 	class Button2Listener implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
-			
+			solver.nextSolution();
 		}
 	}
 
