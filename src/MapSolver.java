@@ -65,5 +65,4 @@ public class MapSolver {
 		map.setData(result);
 		map.repaint();
 	}
-
 }

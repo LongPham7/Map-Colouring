@@ -3,6 +3,11 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
+/**
+ * This class implements a view in the MVC architecture, creating a main frame
+ * with which users interact to obtain solutions to the problem of map
+ * colouring.
+ */
 public class AppFrame {
 
 	private JFrame frame;
@@ -23,6 +28,7 @@ public class AppFrame {
 	private JCheckBox green;
 	private JCheckBox yellow;
 
+	// Creates GUI components for the main frame.
 	public void activate() {
 		frame = new JFrame("Map Colouring");
 		frame.getContentPane().add(BorderLayout.NORTH, panel1);
@@ -72,18 +78,17 @@ public class AppFrame {
 		panel.add(component, c);
 	}
 
-	// Action listener for a button
+	// Action listener for a button to obtain the first solution
 	class Button1Listener implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			solver.solve();
 		}
 	}
 
-	// Action listener for a button
+	// Action listener for a button to obtain the next solution
 	class Button2Listener implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			solver.nextSolution();
 		}
 	}
-
 }

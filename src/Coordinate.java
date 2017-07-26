@@ -1,4 +1,7 @@
-
+/**
+ * This class represents a coordinate of the form (x, y), where both x and y are
+ * integers.
+ */
 public class Coordinate {
 
 	private int x;
