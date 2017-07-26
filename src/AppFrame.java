@@ -4,31 +4,35 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class AppFrame {
-	
+
 	private JFrame frame;
-	
+
 	private JPanel panel1 = new JPanel();
 	private JPanel panel2 = new JPanel();
 	private MapPanel map = new MapPanel();
-	
+
+	private JLabel label;
+
 	private MapSolver solver = new MapSolver(map);
-	
+
 	private JButton button1;
 	private JButton button2;
-	
+
 	private JCheckBox blue;
 	private JCheckBox red;
 	private JCheckBox green;
 	private JCheckBox yellow;
-	
+
 	public void activate() {
 		frame = new JFrame("Map Colouring");
 		frame.getContentPane().add(BorderLayout.NORTH, panel1);
 		frame.getContentPane().add(BorderLayout.CENTER, panel2);
-		
+
+		label = new JLabel("Source: Artificial Intelligence Modern Approach 3rd Ed.");
+
 		button1 = new JButton("Colour the map");
-		button2 = new JButton("Next colouring");
-		
+		button2 = new JButton("Next solution");
+
 		blue = new JCheckBox("Blue");
 		red = new JCheckBox("Red");
 		green = new JCheckBox("Green");
@@ -42,20 +46,19 @@ public class AppFrame {
 		addComponent(button1, panel1, 0, 1, 2);
 		addComponent(button2, panel1, 2, 1, 2);
 		panel1.setBorder(BorderFactory.createTitledBorder("Control Panel"));
-		
+
 		panel2.setLayout(new GridBagLayout());
 		addComponent(map, panel2, 0, 0, 1);
+		addComponent(label, panel2, 0, 1, 1);
 		panel2.setBorder(BorderFactory.createTitledBorder("Map"));
-		
+
 		map.setPreferredSize(new Dimension(500, 450));
-		//map.repaint();
-		//map.setVisible(true);
 
 		button1.addActionListener(new Button1Listener());
 		button2.addActionListener(new Button2Listener());
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(550, 600);
+		frame.setSize(550, 630);
 		frame.setVisible(true);
 	}
 
@@ -68,14 +71,14 @@ public class AppFrame {
 		c.gridwidth = width;
 		panel.add(component, c);
 	}
-	
+
 	// Action listener for a button
 	class Button1Listener implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			solver.solve();
 		}
 	}
-	
+
 	// Action listener for a button
 	class Button2Listener implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
