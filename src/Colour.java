@@ -4,4 +4,20 @@
  * */
 public enum Colour {
 	BLUE, RED, GREEN, YELLOW, WHITE;
+	
+	// Converts an input string to the corresponding object of class Colour.
+	public static Colour convertColour(String colour) {
+		switch (colour) {
+		case "blue":
+			return Colour.BLUE;
+		case "red":
+			return Colour.RED;
+		case "green":
+			return Colour.GREEN;
+		case "yellow":
+			return Colour.YELLOW;
+		default:
+			throw new Error("Illegal colour");
+		}
+	}
 }

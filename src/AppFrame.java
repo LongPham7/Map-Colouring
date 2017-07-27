@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
@@ -42,6 +43,11 @@ public class AppFrame {
 		red = new JCheckBox("Red");
 		green = new JCheckBox("Green");
 		yellow = new JCheckBox("Yellow");
+		
+		blue.setSelected(true);
+		red.setSelected(true);
+	    green.setSelected(true);
+		yellow.setSelected(true);
 
 		panel1.setLayout(new GridBagLayout());
 		addComponent(blue, panel1, 0, 0, 1);
@@ -80,7 +86,8 @@ public class AppFrame {
 	// Action listener for a button to obtain the first solution
 	class Button1Listener implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
-			solver.solve();
+			System.out.println(blue.getText());
+			solver.solve(getColours());
 		}
 	}
 
@@ -89,5 +96,24 @@ public class AppFrame {
 		public void actionPerformed(ActionEvent event) {
 			solver.nextSolution();
 		}
+	}
+	
+	// Returns a list of colours selected by users. 
+	private ArrayList<String> getColours() {
+		ArrayList<String> result = new ArrayList<String>();
+		if (blue.isSelected()) {
+			result.add(blue.getText().toLowerCase());
+		}
+		if (red.isSelected()) {
+			result.add(red.getText().toLowerCase());
+		}
+		if (green.isSelected()) {
+			result.add(green.getText().toLowerCase());
+		}
+		if (yellow.isSelected()) {
+			result.add(yellow.getText().toLowerCase());
+		}
+		System.out.println(result);
+		return result;
 	}
 }

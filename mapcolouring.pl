@@ -14,12 +14,8 @@ members([], Ys).
 
 % Test rig
 
-test_colour(Name, Map) :-
-  map(Name, Map),
-  colours(Name, Colours),
-  colour_map(Map, Colours).
+test_colour(Name, Colours, Map) :-
+  map(Name, Map), colour_map(Map, Colours).
 
 map(test, [region(a,A,[B,F]), region(b,B,[A,C,F]), region(c,C,[B,D,F]),
 region(d,D,[C,E,F]), region(e,E,[D,F]), region(f,F,[A,B,C,D,E]), region(g, G, [])]).
-
-colours(X,[blue,red,green,yellow]).
