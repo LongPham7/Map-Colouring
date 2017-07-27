@@ -5,8 +5,7 @@ import javax.swing.*;
 
 /**
  * This class implements a view in the MVC architecture, creating a main frame
- * with which users interact to obtain solutions to the problem of map
- * colouring.
+ * with which users interact to obtain solutions to the map colouring problem.
  */
 public class AppFrame {
 

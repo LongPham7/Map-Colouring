@@ -4,25 +4,30 @@ import java.awt.geom.*;
 import javax.swing.JPanel;
 
 /**
- * This class
+ * This class creates a JPanel where a map is displayed. 
  */
 public class MapPanel extends JPanel {
 
 	// Default serial version UID
 	private static final long serialVersionUID = 1L;
 
+	// Number of nodes in the map
 	public static final int NUMBER_NODES = 7;
 
+	// Colours of the nodes in the map
 	private Colour[] colours = new Colour[NUMBER_NODES];
+
+	// Coordinates of the nodes in the map
 	private Coordinate[] coordinates = new Coordinate[NUMBER_NODES];
 
 	public MapPanel() {
-		// Initialize the data array.
+		// Initialize the array colours.
 		for (int i = 0; i != NUMBER_NODES; i++) {
 			colours[i] = Colour.WHITE;
 		}
 
-		// Initialize the coordinates.
+		// Initialize the coordinates. 
+		// The size of this panel is (500, 450).
 		coordinates[0] = new Coordinate(50, 180);
 		coordinates[1] = new Coordinate(150, 50);
 		coordinates[2] = new Coordinate(330, 50);
