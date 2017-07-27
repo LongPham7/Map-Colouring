@@ -3,7 +3,7 @@
 ### Overview
 This application presents a map to users, allowing them to select the colours and solve the map colouring problem using these colours. A GUI is created when the program is executed. It has two buttons - one button is for solving the map colouring problem to obtain the first solution, and the second button walks the users through all the remaining solutions. 
 
-Java is used to create a GUI and to coordinate the application, while the map colouring problem is solved by Prolog. 
+Java is used to create a GUI and to run the application, while the map colouring problem is solved by Prolog. 
 
 ### How to run this application
 To run this program, you first need to install a Prolog engine. The one I
